@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrivo — Persönliche IT-Begleitung Basel</title>
+<style>
+  :root {
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A4A;
+    --ink-mute: #8A8A8A;
+    --paper: #FFFFFF;
+    --paper-warm: #F7F5F1;
+    --accent: #185FA5;
+    --accent-light: #E6F1FB;
+    --line: #E4E2DC;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { text-decoration: none; color: inherit; }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+  }
+  .logo { font-size: 22px; font-weight: 600; letter-spacing: 0.3px; }
+  .nav-links { display: flex; gap: 36px; align-items: center; font-size: 15px; color: var(--ink-soft); }
+  .nav-cta {
+    border: 1px solid var(--ink);
+    border-radius: 6px;
+    padding: 10px 22px;
+    color: var(--ink);
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .nav-cta:hover { background: var(--ink); color: var(--paper); }
+
+  /* HERO */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 90px 48px 100px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.5px;
+    margin-bottom: 26px;
+  }
+  .hero-sub {
+    font-size: 19px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 38px;
+    max-width: 480px;
+  }
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 16px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary {
+    border: 1px solid var(--line);
+    padding: 16px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--ink); }
+
+  .hero-image-wrap { position: relative; }
+  .hero-image {
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/4.6;
+    background: var(--paper-warm);
+  }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-card {
+    position: absolute;
+    bottom: -22px;
+    left: -22px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 24px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  }
+  .hero-card-name { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
+  .hero-card-sub { font-size: 13px; color: var(--ink-mute); }
+
+  /* WHY SECTION */
+  .why {
+    background: var(--paper-warm);
+    padding: 80px 48px;
+  }
+  .section-eyebrow {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 48px;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .why-num {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  .why-title { font-size: 19px; font-weight: 600; margin-bottom: 12px; }
+  .why-text { font-size: 15px; color: var(--ink-soft); line-height: 1.65; }
+
+  /* SERVICES */
+  .services { padding: 90px 48px; text-align: center; }
+  .services h2 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 56px;
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .service-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 34px 28px;
+    text-align: left;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .service-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  .service-title { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+  .service-text { font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 18px; }
+  .service-link { font-size: 14px; color: var(--accent); font-weight: 500; }
+
+  /* ABOUT / STORY */
+  .story {
+    background: var(--paper-warm);
+    padding: 90px 48px;
+  }
+  .story-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .story-inner h2 {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 24px;
+    line-height: 1.3;
+  }
+  .story-inner p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+
+  /* CTA BLOCK */
+  .cta-block {
+    background: var(--ink);
+    padding: 90px 48px;
+    text-align: center;
+  }
+  .cta-block p {
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--paper);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    letter-spacing: -0.3px;
+  }
+  .cta-block .btn-primary { background: var(--paper); color: var(--ink); display: inline-block; }
+  .cta-block .btn-primary:hover { opacity: 0.9; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; padding: 60px 24px; }
+    .why-grid, .service-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 36px; }
+    nav { padding: 18px 24px; }
+    .nav-links { display: none; }
+    .why, .services, .story, .cta-block { padding: 60px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">contrivo</div>
+  <div class="nav-links">
+    <a href="#angebot">Angebot</a>
+    <a href="#warum">So funktioniert's</a>
+    <a href="#ueber-mich">Über mich</a>
+    <a href="#kontakt" class="nav-cta">Termin vereinbaren</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">Persönliche IT-Begleitung Basel</p>
+    <h1>Was Sie suchen, ist näher als Sie denken.</h1>
+    <p class="hero-sub">Geduldige, persönliche Begleitung im Umgang mit Smartphone, Tablet und Computer. Bei Ihnen zuhause, in Ihrem Tempo.</p>
+    <div class="cta-row">
+      <a href="#kontakt" class="btn-primary">Kostenloses Erstgespräch</a>
+      <a href="#angebot" class="btn-secondary">Mehr erfahren →</a>
+    </div>
+  </div>
+  <div class="hero-image-wrap">
+    <div class="hero-image">
+      <img src="images/portrait.jpg" alt="Alain, Gründer von Contrivo">
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-name">Alain — Contrivo</div>
+      <div class="hero-card-sub">14 Jahre IT-Erfahrung · Basel</div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="warum">
+  <p class="section-eyebrow">Warum Contrivo anders ist</p>
+  <div class="why-grid">
+    <div>
+      <p class="why-num">01 — GEDULD</p>
+      <h3 class="why-title">Ihr Tempo zählt.</h3>
+      <p class="why-text">Keine Hektik, keine Fachbegriffe. Wir gehen so lange, bis Sie es wirklich verstanden haben.</p>
+    </div>
+    <div>
+      <p class="why-num">02 — VERTRAUEN</p>
+      <h3 class="why-title">Eine feste Ansprechperson.</h3>
+      <p class="why-text">Keine anonyme Hotline. Sie kennen mich, ich kenne Ihre Geräte und Ihre Fragen.</p>
+    </div>
+    <div>
+      <p class="why-num">03 — BEITRAG</p>
+      <h3 class="why-title">Mehr als nur Technik.</h3>
+      <p class="why-text">Es geht um Teilhabe, Selbständigkeit und Verbindung — die Technik ist nur das Werkzeug dazu.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="angebot">
+  <p class="section-eyebrow">Unsere Angebote</p>
+  <h2>Drei Wege zu mehr digitaler Sicherheit.</h2>
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3 class="service-title">Hausbesuch</h3>
+      <p class="service-text">Persönliche Begleitung bei Ihnen zuhause. 90 Minuten ungeteilte Aufmerksamkeit.</p>
+      <a href="#kontakt" class="service-link">Mehr erfahren →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👥</div>
+      <h3 class="service-title">Workshop</h3>
+      <p class="service-text">Gemeinsam lernen in kleiner Runde. Austausch und Wissen in entspannter Atmosphäre.</p>
+      <a href="#kontakt" class="service-link">Mehr erfahren →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📞</div>
+      <h3 class="service-title">Telefonsupport</h3>
+      <p class="service-text">Schnelle Hilfe bei akuten Fragen — ein Anruf genügt.</p>
+      <a href="#kontakt" class="service-link">Mehr erfahren →</a>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="ueber-mich">
+  <div class="story-inner">
+    <h2>Contrivo kommt vom lateinischen „contribuere" — etwas beitragen.</h2>
+    <p>Nach 14 Jahren im IT-Support habe ich gesehen, wie viele ältere Menschen sich von der digitalen Welt ausgeschlossen fühlen — nicht weil sie es nicht können, sondern weil ihnen niemand die Zeit und Geduld schenkt, es in Ruhe zu lernen.</p>
+    <p>Contrivo ist mein Beitrag dazu: Wissen weitergeben, Vertrauen aufbauen, Menschen verbinden. Ganz ohne Fachjargon, ganz in Ihrem Tempo.</p>
+  </div>
+</section>
+
+<section class="cta-block" id="kontakt">
+  <p>Sie müssen nicht alles auf einmal verstehen.</p>
+  <a href="mailto:info@contrivo.ch" class="btn-primary">Jetzt kostenlos kennenlernen</a>
+</section>
+
+<footer>
+  © 2025 Contrivo · Basel, Schweiz · info@contrivo.ch
+</footer>
+
+</body>
+</html>
