@@ -196,6 +196,126 @@
   .service-text { font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 18px; }
   .service-link { font-size: 14px; color: var(--accent); font-weight: 500; }
 
+  /* PRICING */
+  .pricing {
+    background: var(--paper-warm);
+    padding: 90px 48px;
+    text-align: center;
+  }
+  .pricing h2 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .pricing-sub {
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 56px;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .pricing-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 36px 28px;
+    text-align: left;
+  }
+  .pricing-card.featured {
+    border-color: var(--accent);
+    position: relative;
+  }
+  .pricing-badge {
+    position: absolute;
+    top: -12px;
+    left: 28px;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  .pricing-name {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 16px;
+  }
+  .pricing-price {
+    font-size: 44px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .pricing-price span {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 0;
+  }
+  .pricing-duration {
+    font-size: 14px;
+    color: var(--ink-mute);
+    margin-bottom: 28px;
+  }
+  .pricing-features {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+  .pricing-features li {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .pricing-features li:last-child { border-bottom: none; }
+  .pricing-features li::before {
+    content: "✓";
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    padding: 13px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    transition: all 0.2s;
+  }
+  .pricing-cta:hover { background: var(--ink); color: var(--paper); }
+  .pricing-card.featured .pricing-cta {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+  .pricing-card.featured .pricing-cta:hover { opacity: 0.88; }
+  .pricing-note {
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--ink-mute);
+  }
+
   /* ABOUT / STORY */
   .story {
     background: var(--paper-warm);
@@ -362,7 +482,8 @@
     h1 { font-size: 36px; }
     nav { padding: 18px 24px; }
     .nav-links { display: none; }
-    .why, .services, .story, .cta-block, .contact { padding: 60px 24px; }
+    .why, .services, .pricing, .story, .cta-block, .contact { padding: 60px 24px; }
+    .pricing-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
   }
 </style>
@@ -374,6 +495,7 @@
   <div class="nav-links">
     <a href="#angebot">Angebot</a>
     <a href="#warum">So funktioniert's</a>
+    <a href="#preise">Preise</a>
     <a href="#ueber-mich">Über mich</a>
     <a href="#kontakt" class="nav-cta">Termin vereinbaren</a>
   </div>
@@ -444,6 +566,56 @@
       <a href="#kontakt" class="service-link">Mehr erfahren →</a>
     </div>
   </div>
+</section>
+
+<section class="pricing" id="preise">
+  <p class="section-eyebrow">Transparente Preise</p>
+  <h2>Klare Kosten, keine Überraschungen.</h2>
+  <p class="pricing-sub">Das erste Kennenlerngespräch ist kostenlos — danach wissen wir beide, ob es passt.</p>
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <p class="pricing-name">Hausbesuch</p>
+      <div class="pricing-price">CHF 100</div>
+      <p class="pricing-duration">60 Minuten · bei Ihnen zuhause</p>
+      <ul class="pricing-features">
+        <li>Persönliche Begleitung vor Ort</li>
+        <li>Smartphone, Tablet oder Computer</li>
+        <li>Anfahrt in Basel &amp; Baselland inkl.</li>
+        <li>Kein Fachjargon, Ihr Tempo</li>
+      </ul>
+      <a href="#kontakt" class="pricing-cta">Termin anfragen</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Beliebt</div>
+      <p class="pricing-name">Workshop</p>
+      <div class="pricing-price">CHF 60 <span style="font-size:18px;font-weight:500;color:var(--ink-soft)">/ Person</span></div>
+      <p class="pricing-duration">2 Stunden · max. 4 Personen</p>
+      <ul class="pricing-features">
+        <li>Gemeinsam lernen in kleiner Gruppe</li>
+        <li>Thema nach Wunsch wählbar</li>
+        <li>Austausch mit Gleichgesinnten</li>
+        <li>Günstiger als Einzelbegleitung</li>
+      </ul>
+      <a href="#kontakt" class="pricing-cta">Platz reservieren</a>
+    </div>
+
+    <div class="pricing-card">
+      <p class="pricing-name">Telefonsupport</p>
+      <div class="pricing-price">CHF 40</div>
+      <p class="pricing-duration">30 Minuten · per Telefon</p>
+      <ul class="pricing-features">
+        <li>Schnelle Hilfe bei akuten Fragen</li>
+        <li>Kein Termin nötig</li>
+        <li>Abrechnung in 15-Min.-Schritten</li>
+        <li>Ideal für einfache Probleme</li>
+      </ul>
+      <a href="#kontakt" class="pricing-cta">Jetzt anfragen</a>
+    </div>
+
+  </div>
+  <p class="pricing-note">Alle Preise inkl. MwSt. · Kostenloses Erstgespräch (20 Min.) für alle Angebote</p>
 </section>
 
 <section class="story" id="ueber-mich">
