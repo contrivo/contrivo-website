@@ -340,6 +340,56 @@
     margin-bottom: 18px;
   }
 
+  /* LEARN SECTION */
+  .learn {
+    padding: 90px 48px;
+    background: var(--paper);
+  }
+  .learn-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+  .learn-inner h2 {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .learn-sub {
+    font-size: 17px;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .learn-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .learn-item {
+    background: var(--paper-warm);
+    border-radius: 14px;
+    padding: 28px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .learn-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+  .learn-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .learn-text {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
   /* FAQ */
   .faq {
     padding: 90px 48px;
@@ -574,8 +624,8 @@
     h1 { font-size: 36px; }
     nav { padding: 18px 24px; }
     .nav-links { display: none; }
-    .why, .services, .pricing, .faq, .story, .cta-block, .contact { padding: 60px 24px; }
-    .pricing-grid { grid-template-columns: 1fr; }
+    .why, .services, .pricing, .learn, .faq, .story, .cta-block, .contact { padding: 60px 24px; }
+    .pricing-grid, .learn-grid { grid-template-columns: 1fr; }
     .whatsapp-float span { display: none; }
     .whatsapp-float { padding: 14px; border-radius: 50%; }
     .form-row { grid-template-columns: 1fr; }
@@ -712,6 +762,65 @@
 
   </div>
   <p class="pricing-note">Alle Preise inkl. MwSt. · Kostenloses Erstgespräch (20 Min.) für alle Angebote</p>
+</section>
+
+<section class="learn">
+  <div class="learn-inner">
+    <p class="section-eyebrow">Was Sie bei mir lernen können</p>
+    <h2>Konkrete Hilfe für den digitalen Alltag.</h2>
+    <p class="learn-sub">Kein Kurs, kein Skript — sondern genau das, was Sie brauchen.</p>
+    <div class="learn-grid">
+
+      <div class="learn-item">
+        <div class="learn-icon">💬</div>
+        <div>
+          <p class="learn-title">WhatsApp</p>
+          <p class="learn-text">Mit Familie und Freunden in Kontakt bleiben — Nachrichten, Fotos und Sprachnachrichten verschicken.</p>
+        </div>
+      </div>
+
+      <div class="learn-item">
+        <div class="learn-icon">📹</div>
+        <div>
+          <p class="learn-title">Videoanrufe</p>
+          <p class="learn-text">Enkelkinder per FaceTime oder Zoom sehen — egal wo sie auf der Welt sind.</p>
+        </div>
+      </div>
+
+      <div class="learn-item">
+        <div class="learn-icon">🚂</div>
+        <div>
+          <p class="learn-title">SBB-App</p>
+          <p class="learn-text">Tickets kaufen und Verbindungen suchen — direkt vom Smartphone, ohne Schalter.</p>
+        </div>
+      </div>
+
+      <div class="learn-item">
+        <div class="learn-icon">🔒</div>
+        <div>
+          <p class="learn-title">Sicher im Internet</p>
+          <p class="learn-text">Betrug erkennen, Passwörter verwalten und sorglos surfen — ohne Angst.</p>
+        </div>
+      </div>
+
+      <div class="learn-item">
+        <div class="learn-icon">🛒</div>
+        <div>
+          <p class="learn-title">Online-Einkaufen</p>
+          <p class="learn-text">Medikamente, Lebensmittel oder Geschenke bequem von zuhause bestellen.</p>
+        </div>
+      </div>
+
+      <div class="learn-item">
+        <div class="learn-icon">📱</div>
+        <div>
+          <p class="learn-title">Neues Gerät einrichten</p>
+          <p class="learn-text">iPhone, Android, Tablet oder Computer — wir richten es gemeinsam ein, Schritt für Schritt.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 <section class="faq" id="faq">
