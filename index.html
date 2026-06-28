@@ -612,10 +612,17 @@
 
   /* FOOTER */
   footer {
-    padding: 40px 48px;
+    padding: 48px 48px 40px;
     text-align: center;
     font-size: 13px;
     color: var(--ink-mute);
+    border-top: 1px solid var(--line);
+  }
+  .footer-impressum {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--ink-mute);
+    line-height: 1.8;
   }
 
   @media (max-width: 860px) {
@@ -920,7 +927,12 @@
 </section>
 
 <footer>
-  © 2025 Contrivo · Basel, Schweiz · <a href="mailto:info@contrivo.ch" style="color: var(--ink-mute);">info@contrivo.ch</a>
+  © 2025 Contrivo · <a href="mailto:info@contrivo.ch" style="color: var(--ink-mute);">info@contrivo.ch</a>
+  <div class="footer-impressum">
+    <strong>Impressum</strong><br>
+    Alain Schönenberger · Markgräflerstrasse 16 · 4057 Basel<br>
+    <a href="tel:+41793706678" style="color: var(--ink-mute);">+41 79 370 66 78</a> · <a href="mailto:alain@contrivo.ch" style="color: var(--ink-mute);">alain@contrivo.ch</a>
+  </div>
 </footer>
 
 <a href="https://wa.me/41793706678" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
